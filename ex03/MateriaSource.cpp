@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 20:06:28 by aparolar          #+#    #+#             */
-/*   Updated: 2022/08/01 10:58:05 by aparolar         ###   ########.fr       */
+/*   Updated: 2022/11/05 16:47:01 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ MateriaSource::MateriaSource()
 		_list[i] = nullptr;
 }
 
+MateriaSource::MateriaSource(MateriaSource const &toCopy)
+{
+	*this = toCopy;
+}
+
 MateriaSource::~MateriaSource()
 {
 	for (int i = 0; i < _maxMateria; i++)
@@ -27,11 +32,18 @@ MateriaSource::~MateriaSource()
 	}
 }
 
+MateriaSource& MateriaSource::operator=(MateriaSource const &toCopy)
+{
+	this->_materiasLearned = toCopy._materiasLearned;
+	for (int i = 0; i < _maxMateria; i++)
+		*(this->_list[i]) = *(toCopy._list[i]);
+	return *this;
+}
+
 void MateriaSource::learnMateria(AMateria *materia)
 {
 	if (_materiasLearned == 4)
 	{
-		std::cout << "Can't learn more materias!" << std::endl;
 		return ;
 	}
 	for (int i = 0; i < _maxMateria; i++)
@@ -40,7 +52,6 @@ void MateriaSource::learnMateria(AMateria *materia)
 		{
 			this->_list[i] = materia;
 			_materiasLearned++;
-			std::cout << "Materia " << materia->getType() << " learned!" << std::endl;
 			return ;
 		}
 	}

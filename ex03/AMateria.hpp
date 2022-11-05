@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 13:42:54 by aparolar          #+#    #+#             */
-/*   Updated: 2022/08/01 10:45:55 by aparolar         ###   ########.fr       */
+/*   Updated: 2022/11/05 16:46:16 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@ class AMateria
 		
 	public:
 		AMateria();
+		AMateria(AMateria const &toCopy);
 		AMateria(std::string const &type);
 		virtual ~AMateria();
 
+		AMateria& operator=(AMateria const &toCopy);
 		std::string const & getType() const;
 
 		virtual AMateria* clone() const = 0;

@@ -1,7 +1,7 @@
 NAME		=	Brain
-CXX			=	clang++ $(CXXFLAGS) -std=c++98
+CXX			=	clang++ $(CXXFLAGS) -std=c++98 -pedantic
 42FLAGS		=	-Wall -Werror -Wextra
-CXXFLAGS 	=	$(42FLAGS) $(LDFLAGS)
+CXXFLAGS 	=	$(42FLAGS)
 LDFLAGS		=	-fsanitize=address
 SRCS		=	main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
 OBJS		=	$(SRCS:.cpp=.o)

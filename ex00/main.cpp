@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 17:07:29 by aparolar          #+#    #+#             */
-/*   Updated: 2022/07/27 10:36:14 by aparolar         ###   ########.fr       */
+/*   Updated: 2022/11/05 12:00:28 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 
 int	main(void)
 {
+
+	std::cout << "------------Animal---------------" << std::endl;
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
@@ -27,6 +29,8 @@ int	main(void)
 	delete meta;
 	delete j;
 	delete i;
+
+	std::cout << "------------WrongAnimal---------------" << std::endl;
 
 	const WrongAnimal* metaWrong = new WrongAnimal();
 	const WrongAnimal* catWrong = new WrongCat();

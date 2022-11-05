@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 15:56:53 by aparolar          #+#    #+#             */
-/*   Updated: 2022/07/27 16:07:48 by aparolar         ###   ########.fr       */
+/*   Updated: 2022/11/05 12:16:11 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,13 @@ class Brain
 		
 	public:
 		Brain();
+		Brain(Brain const &toCopy);
 		~Brain();
+
+		Brain& operator=(Brain const &toCopy);
+
+		const std::string& getIdea(int i) const;
+		void setIdea(std::string idea, int i);
 };
 
 #endif

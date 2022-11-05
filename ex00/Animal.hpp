@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 16:44:10 by aparolar          #+#    #+#             */
-/*   Updated: 2022/07/26 16:57:41 by aparolar         ###   ########.fr       */
+/*   Updated: 2022/11/05 12:00:11 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ class Animal
 		
 	public:
 		Animal();
+		Animal(Animal const &toCopy);
 		virtual ~Animal();
+
+		Animal& operator = (Animal const &toCopy);
 
 		const std::string &getType() const;
 		virtual void makeSound() const;

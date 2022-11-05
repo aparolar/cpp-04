@@ -1,7 +1,7 @@
 NAME		=	a.out
-CXX			=	clang++ $(CXXFLAGS) -std=c++98
+CXX			=	clang++ $(CXXFLAGS) -std=c++98 -pedantic
 42FLAGS		=	-Wall -Werror -Wextra
-CXXFLAGS 	=	$(42FLAGS) $(LDFLAGS)
+CXXFLAGS 	=	$(42FLAGS)
 LDFLAGS		=	-fsanitize=address -g3
 SRCS		=	main.cpp Character.cpp Ice.cpp Cure.cpp MateriaSource.cpp AMateria.cpp
 OBJS		=	$(SRCS:.cpp=.o)

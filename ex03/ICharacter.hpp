@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 13:46:04 by aparolar          #+#    #+#             */
-/*   Updated: 2022/08/01 10:49:47 by aparolar         ###   ########.fr       */
+/*   Updated: 2022/11/05 16:46:49 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 # include <string>
 # include "AMateria.hpp"
 # include "stddef.h"
-
-# define nullptr NULL
 
 class AMateria;
 

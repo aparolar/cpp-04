@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 10:28:55 by aparolar          #+#    #+#             */
-/*   Updated: 2022/07/27 10:33:31 by aparolar         ###   ########.fr       */
+/*   Updated: 2022/11/05 12:00:33 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ class WrongAnimal
 	
 	public:
 		WrongAnimal();
+		WrongAnimal(WrongAnimal const &toCopy);
 		~WrongAnimal();
+
+		WrongAnimal& operator=(WrongAnimal const &toCopy);
 
 		const std::string &getType() const;
 		void makeSound() const;

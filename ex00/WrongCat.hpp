@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 10:33:48 by aparolar          #+#    #+#             */
-/*   Updated: 2022/07/27 10:34:32 by aparolar         ###   ########.fr       */
+/*   Updated: 2022/11/05 12:00:40 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ class WrongCat : public WrongAnimal
 {
 	public:
 		WrongCat();
+		WrongCat(WrongCat const &toCopy);
 		~WrongCat();
+
+		WrongCat& operator=(WrongCat const &toCopy);
 
 		void makeSound() const;
 };

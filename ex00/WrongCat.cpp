@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 10:34:50 by aparolar          #+#    #+#             */
-/*   Updated: 2022/07/27 10:35:16 by aparolar         ###   ########.fr       */
+/*   Updated: 2022/11/05 12:01:35 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,24 @@
 WrongCat::WrongCat()
 {
 	_type = "WrongCat";
-	std::cout << "WrongCat contructor base called" << std::endl;
+	std::cout << "WrongCat default contructor called" << std::endl;
+}
+
+WrongCat::WrongCat(WrongCat const &toCopy)
+{
+	std::cout << "WrongCat copy contructor called" << std::endl;
+	*this = toCopy;
 }
 
 WrongCat::~WrongCat()
 {
 	std::cout << "WrongCat destructor base called" << std::endl;
+}
+
+WrongCat& WrongCat::operator=(WrongCat const &toCopy)
+{
+	this->_type = toCopy.getType();
+	return *this;
 }
 
 void WrongCat::makeSound() const

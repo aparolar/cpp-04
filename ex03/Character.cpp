@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 16:13:44 by aparolar          #+#    #+#             */
-/*   Updated: 2022/08/01 12:08:28 by aparolar         ###   ########.fr       */
+/*   Updated: 2022/11/05 15:45:48 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@ Character::Character() : _name("")
 {
 	for (int i = 0; i < _inventory_size; i++)
 		_inventory[i] = nullptr;
+}
+
+Character::Character(Character const &toCopy)
+{
+	for (int i = 0; i < _inventory_size; i++)
+		_inventory[i] = nullptr;
+	*this = toCopy;
 }
 
 Character::Character(std::string const &name) : _name(name)
@@ -28,6 +35,20 @@ Character::~Character()
 {
 	for (int i = 0; i < _inventory_size; i++)
 		delete _inventory[i];
+}
+
+Character& Character::operator=(Character const &toCopy)
+{
+	this->_name = toCopy.getName();
+	for (int i = 0; i < _inventory_size; i++)
+	{
+		if (this->_inventory[i])
+		{
+			delete this->_inventory[i];
+			this->_inventory[i] = toCopy._inventory[i]->clone();
+		}
+	}
+	return (*this);
 }
 
 std::string const &Character::getName() const
@@ -47,12 +68,9 @@ void Character::equip(AMateria *m)
 		{
 			_inventory[i] = m;
 			equipped = true;
-			std::cout << "Materia " << m->getType() << " equipped in inventory " << i << std::endl;
 			return ;
 		}
 	}
-	if (equipped == false)
-		std::cout << "Inventory is full!" << std::endl;
 }
 
 void Character::unequip(int idx)

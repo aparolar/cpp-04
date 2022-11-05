@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 16:58:46 by aparolar          #+#    #+#             */
-/*   Updated: 2022/08/01 10:56:33 by aparolar         ###   ########.fr       */
+/*   Updated: 2022/11/05 16:47:06 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ class MateriaSource : public IMateriaSource
 	
 	public:
 		MateriaSource();
+		MateriaSource(MateriaSource const &toCopy);
 		~MateriaSource();
+
+		MateriaSource& operator=(MateriaSource const &toCopy);
 
 		void learnMateria(AMateria *materia);
 		AMateria* createMateria(std::string const &type);

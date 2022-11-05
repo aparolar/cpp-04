@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 22:04:17 by aparolar          #+#    #+#             */
-/*   Updated: 2022/07/26 22:04:41 by aparolar         ###   ########.fr       */
+/*   Updated: 2022/11/05 12:00:16 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ class Cat : public Animal
 {
 	public:
 		Cat();
+		Cat(Cat const &toCopy);
 		~Cat();
+
+		Cat& operator=(Cat const &toCopy);
 
 		void makeSound() const;
 };
