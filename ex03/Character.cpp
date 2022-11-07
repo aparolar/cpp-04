@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 16:13:44 by aparolar          #+#    #+#             */
-/*   Updated: 2022/11/05 15:45:48 by aparolar         ###   ########.fr       */
+/*   Updated: 2022/11/07 15:12:39 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,10 @@ Character& Character::operator=(Character const &toCopy)
 		if (this->_inventory[i])
 		{
 			delete this->_inventory[i];
-			this->_inventory[i] = toCopy._inventory[i]->clone();
+			this->_inventory[i] = nullptr;
 		}
+		if (toCopy->_inventory[i])
+			this->_inventory[i] = toCopy._inventory[i]->clone();
 	}
 	return (*this);
 }
